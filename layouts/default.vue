@@ -16,6 +16,11 @@
 import {useAuthStore} from "~/stores/auth";
 const authStore = useAuthStore();
 authStore.getToken();
+
+import { useCartStore } from "~/stores/cart";
+
+const cartStore = useCartStore();
+await cartStore.fetchCarts();
 </script>
 
 <style scoped>

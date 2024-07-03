@@ -23,6 +23,22 @@ export const useCartStore = defineStore('cart', {
             } catch (e) {
                 console.warn(e);
             }
+        },
+
+
+        async fetchCarts() {
+            try {
+                let response = await axiosApi.get("get_cart", {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                });
+                if (response.status == 200) {
+                    this.carts = response.data.data;
+                }
+            } catch (e) {
+                console.warn(e);
+            }
         }
     }
 
